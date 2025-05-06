@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRISOVERDE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #e0f2e9;
+    }
+
+    aside {
+      width: 250px;
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    aside h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .menu button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: left;
+    }
+
+    .menu button:hover {
+      background-color: #66bb6a;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #1b5e20;
+    }
+
+    .conteudo {
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h2>Menu</h2>
+    <div class="menu">
+      <button onclick="mudarConteudo('ODS')">ODS</button>
+      <button onclick="mudarConteudo('RECICLAGEM')">RECICLAGEM</button>
+      <button onclick="mudarConteudo('COLETA SELETIVA')">COLETA SELETIVA</button>
+      <button onclick="mudarConteudo('CRISOMOEDA')">CRISOMOEDA</button>
+      <button onclick="mudarConteudo('FAÇA SEU CADASTRO')">FAÇA SEU CADASTRO</button>
+      <button onclick="mudarConteudo('MEU CAIXINHA')">MEU CAIXINHA</button>
+      <button onclick="mudarConteudo('PONTOS DE COLETA')">PONTOS DE COLETA</button>
+    </div>
+  </aside>
+
+  <main>
+    <div class="titulo">CRISOVERDE</div>
+    <div class="conteudo" id="conteudo">
+      Bem-vindo ao sistema CRISOVERDE! Selecione uma aba no menu.
+    </div>
+  </main>
+
+  <script>
+    function mudarConteudo(aba) {
+      const conteudo = document.getElementById('conteudo');
+      switch (aba) {
+        case 'ODS':
+          conteudo.innerHTML = 'Conteúdo sobre os Objetivos de Desenvolvimento Sustentável (ODS).';
+          break;
+        case 'RECICLAGEM':
+          conteudo.innerHTML = 'Informações sobre reciclagem e sua importância para o meio ambiente.';
+          break;
+        case 'COLETA SELETIVA':
+          conteudo.innerHTML = 'Saiba como funciona a coleta seletiva e como participar.';
+          break;
+        case 'CRISOMOEDA':
+          conteudo.innerHTML = 'Entenda o que é a CrisoMoeda e como utilizá-la.';
+          break;
+        case 'FAÇA SEU CADASTRO':
+          conteudo.innerHTML = `
+            <h3>Cadastro</h3>
+            <form onsubmit="event.preventDefault(); alert('Cadastro enviado!');">
+              <input type="text" placeholder="Nome" required /><br/><br/>
+              <input type="email" placeholder="Email" required /><br/><br/>
+              <input type="password" placeholder="Senha" required /><br/><br/>
+              <button type="submit">Cadastrar</button>
+            </form>
+          `;
+          break;
+        case 'MEU CAIXINHA':
+          conteudo.innerHTML = 'Aqui ficará seu histórico de pontos, trocas e conquistas!';
+          break;
+        case 'PONTOS DE COLETA':
+          conteudo.innerHTML = 'Veja os locais mais próximos para entrega de recicláveis.';
+          break;
+        default:
+          conteudo.innerHTML = 'Bem-vindo ao sistema CRISOVERDE! Selecione uma aba no menu.';
+      }
+    }
+  </script>
+</body>
+</html>
